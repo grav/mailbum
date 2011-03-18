@@ -38,7 +38,7 @@
 (defn get-service [username password]
   (let [myService (PicasawebService. "mailbum")]
     (dosync
-      (myService setUserCredentials usermail password)
+      (. myService setUserCredentials username password)
       myService )))
 
 (defn album-name [album]
@@ -46,10 +46,10 @@
 
 (defn get-album [name feedUrl service]
   (let [userFeed (. service getFeed feedUrl UserFeed)]
-    (find-first #(= (album-name %) name))))
+    (find-first #(= (album-name %) name) (. userFeed getAlbumEntries))))
 
 (defn upload [img service album]
   (let [myMedia (MediaStreamSource. img "image/jpeg")
-        feedUrl (. album getId)]
+        feedUrl (URL. (. album getId))]
     (. service insert feedUrl PhotoEntry myMedia)))
 
