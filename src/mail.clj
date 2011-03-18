@@ -62,3 +62,6 @@
           (. myFolder open 1)
           (filter img-mail? (. myFolder getMessages ))))))
 
+(defn first-image [img-msgs]
+  (:img (image-map (first (image-parts (first img-msgs))))))
+
