@@ -1,1 +1,8 @@
-This file was created by IntelliJ IDEA 10.0.2 for binding GitHub repository
+Creating picture albums from mails. 
+
+This project aims to give an overview of all those images, you might have floating around in your mail. 
+
+The idea is to connect Gmail to Picasa via Google App Engine, so that all traffic is kept on Google's servers. 
+Unfortunately, I haven't yet found a way for GAE to access Gmail directly (IMAP is not allowed, for instance).
+
+
